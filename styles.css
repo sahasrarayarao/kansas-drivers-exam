@@ -407,7 +407,7 @@ body {
 .topic-row { display: flex; align-items: center; gap: 10px; font-size: 13.5px; }
 .topic-row .topic-name { flex: 0 0 230px; color: var(--text-muted); }
 .topic-row .topic-bar-track { flex: 1; height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; }
-.topic-row .topic-bar-fill { height: 100%; border-radius: 999px; transition: width 0.5s ease; }
+.topic-row .topic-bar-fill { display: block; height: 100%; border-radius: 999px; transition: width 0.5s ease; }
 .topic-row .topic-score { flex: 0 0 46px; text-align: right; font-weight: 700; color: var(--text-muted); }
 
 .results-actions {
