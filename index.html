@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kansas Driver's License Practice Exam</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-badge">KS</span>
+      <div class="brand-text">
+        <h1>Kansas Driver's License</h1>
+        <p>Practice Knowledge Exam</p>
+      </div>
+    </div>
+    <div class="header-user" id="headerUser" hidden>
+      <span id="headerUserName"></span>
+      <button id="switchUserBtn" class="link-btn" type="button">Switch user</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+
+    <!-- ============ SCREEN: NAME ENTRY ============ -->
+    <section class="screen" id="screen-name">
+      <div class="card intro-card">
+        <h2>Let's get started</h2>
+        <p class="muted">Enter your name so we can save your progress and focus your practice on the topics you find hardest.</p>
+        <form id="nameForm" autocomplete="off">
+          <div class="field-row">
+            <div class="field">
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" required maxlength="40" placeholder="Dorothy" />
+            </div>
+            <div class="field">
+              <label for="lastName">Last name</label>
+              <input type="text" id="lastName" required maxlength="40" placeholder="Gale" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Continue</button>
+        </form>
+        <p class="fine-print">Your name and quiz history are stored only in this browser (nothing is sent anywhere).</p>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN: DASHBOARD ============ -->
+    <section class="screen" id="screen-dashboard" hidden>
+      <div class="card dashboard-card">
+        <h2 id="dashboardGreeting">Welcome back!</h2>
+        <p class="muted" id="dashboardSub">Ready for another round of 25 questions?</p>
+
+        <div class="stat-grid" id="statGrid"></div>
+
+        <div class="weak-topics" id="weakTopicsWrap" hidden>
+          <h3>Topics to focus on</h3>
+          <div class="chip-row" id="weakTopicsChips"></div>
+        </div>
+
+        <button class="btn btn-primary btn-block btn-lg" id="startExamBtn" type="button">Start Practice Exam</button>
+        <button class="link-btn reset-link" id="resetDataBtn" type="button">Reset my saved progress</button>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN: QUIZ ============ -->
+    <section class="screen" id="screen-quiz" hidden>
+      <div class="quiz-topbar">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="quiz-meta">
+          <span id="questionCounter">Question 1 of 25</span>
+          <span class="topic-tag" id="topicTag">Topic</span>
+        </div>
+      </div>
+
+      <div class="card quiz-card">
+        <h2 class="question-text" id="questionText">Question text goes here</h2>
+
+        <div class="options" id="optionsWrap"></div>
+
+        <div class="feedback-panel" id="feedbackPanel" hidden>
+          <div class="feedback-heading" id="feedbackHeading"></div>
+          <p class="feedback-explain" id="feedbackExplain"></p>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn btn-primary" id="nextBtn" type="button" disabled>Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN: RESULTS ============ -->
+    <section class="screen" id="screen-results" hidden>
+      <div class="card results-card">
+        <div class="score-ring-wrap">
+          <div class="score-ring" id="scoreRing">
+            <span id="scoreBigNumber">0%</span>
+          </div>
+        </div>
+        <h2 id="resultsHeadline">Results</h2>
+        <p class="muted" id="resultsSub"></p>
+
+        <div class="topic-breakdown" id="topicBreakdown"></div>
+
+        <div class="results-actions">
+          <button class="btn btn-secondary" id="reviewMissedBtn" type="button">Review Missed Questions</button>
+          <button class="btn btn-primary" id="retakeBtn" type="button">Take Another Exam</button>
+          <button class="link-btn" id="backToDashBtn" type="button">Back to Dashboard</button>
+        </div>
+
+        <div class="missed-review" id="missedReview" hidden></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Practice material only &middot; all questions are drawn from the official Kansas Driving Handbook. Always confirm current rules at ksrevenue.gov.</p>
+  </footer>
+
+</div>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
